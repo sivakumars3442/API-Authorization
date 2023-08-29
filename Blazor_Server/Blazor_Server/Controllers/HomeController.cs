@@ -7,12 +7,12 @@ namespace Blazor_Server.Controllers
     public class HomeController : Controller
     {
         [HttpGet("GetData")]
-        [Authorize]
+        [Authorize (Roles = "Admin")]
         public IActionResult GetData()
         {
             string authorizationHeader = HttpContext.Request.Headers["Authorization"];
             // Your logic to fetch data
-            return Ok();
+            return Ok("Hi you are an Admin");
         }
     }
 }
